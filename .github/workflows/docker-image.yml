@@ -31,4 +31,4 @@ jobs:
     # Step 4: Push the Docker image to GitHub Packages
     - name: Push Docker image to GitHub Container Registry
       run: |
-        docker push ghcr.io/${{ toLower(github.repository_owner) }}/forks-gotenberg:8
+        docker push ghcr.io/oslo-kommune-bystyrets-sekretariat/forks-gotenberg:8
