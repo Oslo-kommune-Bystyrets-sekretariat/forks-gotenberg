@@ -26,11 +26,9 @@ jobs:
     # Step 3: Build the Docker image
     - name: Build the Docker image
       run: |
-        REPO_OWNER_LOWER=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
-        docker build . --file Dockerfile --tag ghcr.io/$REPO_OWNER_LOWER/forks-gotenberg:8
+        docker build . --file Dockerfile --tag ghcr.io/oslo-kommune-bystyrets-sekretariat/forks-gotenberg:8
 
     # Step 4: Push the Docker image to GitHub Packages
     - name: Push Docker image to GitHub Container Registry
       run: |
-        REPO_OWNER_LOWER=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
-        docker push ghcr.io/$REPO_OWNER_LOWER/forks-gotenberg:8
+        docker push ghcr.io/${{ toLower(github.repository_owner) }}/forks-gotenberg:8
